@@ -1,11 +1,15 @@
 import * as React from 'react'
 import { shallow, mount, render } from 'enzyme'
 
-import Hello from './hello'
+import Hello from '../hello'
 
 describe('Hello', () => {
   it('should render without throwing an error', () => {
     expect(shallow(<Hello />).contains(<h1 className='hello-test'>Hello world</h1>)).toBe(true)
+  })
+
+  it('should match snapshot', () => {
+    expect(shallow(<Hello />)).toMatchSnapshot()
   })
 
   it('should be selectable by class `hello-test`', () => {

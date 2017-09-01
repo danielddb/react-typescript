@@ -22,6 +22,7 @@
     "awesome-typescript-loader": "^3.2.3",
     "clean-webpack-plugin": "^0.1.16",
     "enzyme": "^2.9.1",
+    "enzyme-to-json": "^1.5.1",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.30.1",
     "jest": "^20.0.4",
@@ -45,16 +46,19 @@
     "test": "jest"
   },
   "jest": {
-    "transform": {
-      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
-    },
-    "testRegex": ".*\\.spec.tsx$",
     "moduleFileExtensions": [
       "ts",
       "tsx",
       "js",
       "jsx",
       "json"
-    ]
+    ],
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/enzyme-to-json/serializer"
+    ],
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    }
   }
 }

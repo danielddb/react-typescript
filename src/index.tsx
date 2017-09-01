@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
-import Hello from './hello'
+import Hello from './components/hello'
 
 const render = (Component: any) => {
   ReactDOM.render(
