@@ -18,7 +18,10 @@ const config: webpack.Configuration = webpackMerge(commonConfig, {
   plugins: [
     new UglifyJSPlugin({ ie8: false, output: { comments: false } }),
 
-    new webpack.optimize.CommonsChunkPlugin({ name: 'common' }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: module => /node_modules/.test(module.resource)
+    }),
 
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',

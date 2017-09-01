@@ -16,8 +16,8 @@ render(Hello)
 
 // Hot Module Replacement API
 if (module.hot) {
-  module.hot.accept('./hello', () => {
-    const NextApp = require<{default: typeof Hello}>('./hello').default
+  module.hot.accept('./components/hello', () => {
+    const NextApp = require<{default: typeof Hello}>('./components/hello').default
     render(NextApp)
   })
 }

@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Hello should match snapshot 1`] = `
-<h1
-  className="hello-test"
+exports[`Hello should render without throwing an error 1`] = `
+<styled.h1
+  primary={true}
 >
   Hello world
-</h1>
+</styled.h1>
 `;

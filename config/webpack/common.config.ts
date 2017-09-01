@@ -49,6 +49,11 @@ const config: webpack.Configuration = {
         conservativeCollapse: false,
         collapseWhitespace: true,
       }
+    }),
+
+    new webpack.ProvidePlugin({
+      Promise: 'imports-loader?this=>global!exports-loader?global.Promise!es6-promise',
+      fetch: 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch'
     })
   ]
 }

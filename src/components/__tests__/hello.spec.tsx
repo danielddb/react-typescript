@@ -5,19 +5,7 @@ import Hello from '../hello'
 
 describe('Hello', () => {
   it('should render without throwing an error', () => {
-    expect(shallow(<Hello />).contains(<h1 className='hello-test'>Hello world</h1>)).toBe(true)
-  })
-
-  it('should match snapshot', () => {
     expect(shallow(<Hello />)).toMatchSnapshot()
-  })
-
-  it('should be selectable by class `hello-test`', () => {
-    expect(shallow(<Hello />).is('.hello-test')).toBe(true)
-  })
-
-  it('should mount in a full DOM', () => {
-    expect(mount(<Hello />).find('.hello-test').length).toBe(1)
   })
 
   it('should render to static HTML', () => {
