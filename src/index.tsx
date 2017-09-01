@@ -7,6 +7,8 @@ import { configureStore } from './store/configure-store'
 
 const store = configureStore()
 
+store.dispatch({ type: 'FILTER' })
+
 ReactDOM.render(
   <AppContainer>
     <Root store={store} />
@@ -20,10 +22,10 @@ if (module.hot) {
     const NewRoot = require('./components/root').default
 
     ReactDOM.render(
-        <AppContainer>
-            <NewRoot store={store} />
-        </AppContainer>,
-        document.getElementById('root')
-    );
+      <AppContainer>
+        <NewRoot store={store} />
+      </AppContainer>,
+      document.getElementById('root')
+    )
   })
 }
