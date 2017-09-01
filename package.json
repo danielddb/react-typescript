@@ -37,6 +37,8 @@
     "source-map-loader": "^0.2.1",
     "ts-jest": "^20.0.14",
     "ts-node": "^3.3.0",
+    "tslint": "^5.7.0",
+    "tslint-react": "^3.2.0",
     "typescript": "^2.5.2",
     "uglifyjs-webpack-plugin": "^0.4.6",
     "webpack": "^3.5.5",
@@ -48,6 +50,7 @@
     "server": "webpack-dev-server --open --config config/webpack/dev.config.ts",
     "build": "webpack --config config/webpack/dev.config.ts",
     "build:prod": "webpack --config config/webpack/prod.config.ts",
+    "lint:ts": "tslint **/*.ts -c config/tslint.json",
     "test": "jest"
   },
   "jest": {

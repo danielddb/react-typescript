@@ -1,9 +1,9 @@
 import * as path from 'path'
 
-const _root = path.resolve(__dirname, '..')
+const rootDir = path.resolve(__dirname, '..')
 
 export function root(args?: any) {
   args = Array.prototype.slice.call(arguments, 0)
-  
-  return path.join.apply(path, [_root].concat(args))
+
+  return path.join.apply(path, [rootDir].concat(args))
 }
