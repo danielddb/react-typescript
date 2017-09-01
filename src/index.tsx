@@ -1,23 +1,29 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
-import Hello from './components/hello'
 
-const render = (Component: any) => {
-  ReactDOM.render(
-    <AppContainer>
-      <Component/>
-    </AppContainer>,
-    document.getElementById('app')
-  )
-}
+import Root from './components/root'
+import { configureStore } from './store/configure-store'
 
-render(Hello)
+const store = configureStore()
+
+ReactDOM.render(
+  <AppContainer>
+    <Root store={store} />
+  </AppContainer>,
+  document.getElementById('root')
+)
 
 // Hot Module Replacement API
 if (module.hot) {
-  module.hot.accept('./components/hello', () => {
-    const NextApp = require<{default: typeof Hello}>('./components/hello').default
-    render(NextApp)
+  module.hot.accept('./components/root', () => {
+    const NewRoot = require('./components/root').default
+
+    ReactDOM.render(
+        <AppContainer>
+            <NewRoot store={store} />
+        </AppContainer>,
+        document.getElementById('root')
+    );
   })
 }
