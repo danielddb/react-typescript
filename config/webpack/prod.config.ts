@@ -1,7 +1,7 @@
-import * as webpack from "webpack"
-import * as webpackMerge from 'webpack-merge'
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+import * as webpack from 'webpack';
+import * as webpackMerge from 'webpack-merge';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 import commonConfig from './common.config'
 import { root } from '../helpers'
@@ -16,14 +16,9 @@ const config: webpack.Configuration = webpackMerge(commonConfig, {
   },
 
   plugins: [
-    new UglifyJSPlugin({
-      ie8: false,
-      output: { comments: false }
-    }),
+    new UglifyJSPlugin({ ie8: false, output: { comments: false } }),
 
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'common' // Specify the common bundle's name.
-    }),
+    new webpack.optimize.CommonsChunkPlugin({ name: 'common' }),
 
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
