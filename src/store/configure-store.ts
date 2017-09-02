@@ -4,6 +4,14 @@ import {
   compose,
   createStore
 } from 'redux'
+import createHistory from 'history/createBrowserHistory'
+const reactRouterRedux = require('react-router-redux')
+
+// Create a history of your choosing (we're using a browser history in this case)
+export const history = createHistory()
+
+// Build the middleware for intercepting and dispatching navigation actions
+const middleware = reactRouterRedux.routerMiddleware(history)
 
 const filter = (state = '', action: any) => {
   switch (action.type) {
@@ -14,9 +22,9 @@ const filter = (state = '', action: any) => {
   }
 }
 
-const rootReducer = combineReducers({ filter })
+const rootReducer = combineReducers({ filter, router: reactRouterRedux.routerReducer })
 
-const middlewares: any = []
+const middlewares: any = [middleware]
 
 if (process.env.NODE_ENV !== 'production') {
   const { logger } = require('redux-logger')

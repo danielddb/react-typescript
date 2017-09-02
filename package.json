@@ -4,13 +4,18 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@types/history": "^4.6.0",
     "@types/react": "^16.0.5",
     "@types/react-dom": "^15.5.4",
     "@types/react-redux": "^5.0.6",
+    "@types/react-router": "^4.0.15",
     "es6-promise": "^4.1.1",
+    "history": "^4.7.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-redux": "next",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "styled-components": "^2.1.2",
@@ -54,7 +59,7 @@
     "server": "webpack-dev-server --open --config config/webpack/dev.config.ts",
     "build": "webpack --config config/webpack/dev.config.ts",
     "build:prod": "webpack --config config/webpack/prod.config.ts",
-    "lint:ts": "tslint **/*.ts **/*.tsx -c config/tslint.json",
+    "lint:ts": "tslint **/*.tsx **/*.ts -c config/tslint.json",
     "test": "jest"
   },
   "jest": {
