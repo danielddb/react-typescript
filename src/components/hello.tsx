@@ -7,7 +7,7 @@ interface Props {
 
 const StyledH1 = styled.h1`
   background: #eee;
-  
+
   ${(props: Props) => props.primary && css`
     background: orange;
   `}
