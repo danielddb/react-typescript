@@ -4,6 +4,7 @@ import {
   compose,
   createStore
 } from 'redux'
+import thunk from 'redux-thunk'
 import createHistory from 'history/createBrowserHistory'
 const reactRouterRedux = require('react-router-redux')
 
@@ -11,7 +12,7 @@ const reactRouterRedux = require('react-router-redux')
 export const history = createHistory()
 
 // Build the middleware for intercepting and dispatching navigation actions
-const middleware = reactRouterRedux.routerMiddleware(history)
+const routerMiddleware = reactRouterRedux.routerMiddleware(history)
 
 const filter = (state = '', action: any) => {
   switch (action.type) {
@@ -24,7 +25,7 @@ const filter = (state = '', action: any) => {
 
 const rootReducer = combineReducers({ filter, router: reactRouterRedux.routerReducer })
 
-const middlewares: any = [middleware]
+const middlewares: any = [routerMiddleware, thunk]
 
 if (process.env.NODE_ENV !== 'production') {
   const { logger } = require('redux-logger')
