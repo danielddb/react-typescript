@@ -8,5 +8,5 @@ export default () => injectGlobal`
 
   ${fonts}
 
-  body { font-family: Roboto Bold; }
+  body { font-family: "Roboto"; }
 `
