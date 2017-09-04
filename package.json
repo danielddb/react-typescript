@@ -11,7 +11,6 @@
     "@types/react-redux": "^5.0.6",
     "@types/react-router": "^4.0.15",
     "@types/react-router-dom": "^4.0.7",
-    "axios": "^0.16.2",
     "es6-promise": "^4.1.1",
     "history": "^4.7.2",
     "material-ui": "next",
