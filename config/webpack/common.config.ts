@@ -1,6 +1,6 @@
 import * as HtmlWebpackPlugin from 'html-webpack-plugin'
 import * as path from 'path'
-import * as webpack from "webpack"
+import * as webpack from 'webpack'
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 import { root } from '../helpers'

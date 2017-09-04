@@ -1,14 +1,14 @@
-import * as webpack from 'webpack';
-import * as webpackMerge from 'webpack-merge';
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+import * as webpack from 'webpack'
+import * as webpackMerge from 'webpack-merge'
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 import commonConfig from './common.config'
 import { root } from '../helpers'
 
 const config: webpack.Configuration = webpackMerge(commonConfig, {
   devtool: 'cheap-module-source-map',
-  
+
   module: {
     rules: [
       { test: /\.tsx?$/, use: ['awesome-typescript-loader'] }

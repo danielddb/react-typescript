@@ -1,8 +1,10 @@
-import * as webpack from "webpack"
+import * as webpack from 'webpack'
 import * as webpackMerge from 'webpack-merge'
-
 import commonConfig from './common.config'
 import { root } from '../helpers'
+const argv = require('minimist')(process.argv.slice(2))
+
+const envArgs = argv.env || {}
 
 const config: webpack.Configuration = webpackMerge(commonConfig, {
   entry: {
@@ -10,9 +12,20 @@ const config: webpack.Configuration = webpackMerge(commonConfig, {
   },
 
   devtool: 'inline-source-map',
-  
+
   devServer: {
-    hot: true
+    historyApiFallback: true,
+    hot: true,
+    proxy: [
+      {
+        context: envArgs.mockPath,
+        target: `http://localhost:${envArgs.mockPort}`,
+        pathRewrite: {
+          [`^${envArgs.mockPath}`]: '/'
+        }
+      }
+    ],
+    stats: 'minimal'
   },
 
   module: {

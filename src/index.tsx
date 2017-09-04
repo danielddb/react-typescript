@@ -6,9 +6,8 @@ import styles from './theme'
 styles()
 
 import Root from './components/root'
-import { configureStore, history } from './store/configure-store'
-
-const store = configureStore()
+import { store } from './store/configure-store'
+import { history } from './store/middlewares'
 
 ReactDOM.render(
   <AppContainer>
