@@ -1,5 +1,11 @@
 import * as React from 'react'
 
-const AnalysisModule = (props: any) => <div>Analysis Module</div>
+import Filters from './containers/filters'
+
+const AnalysisModule = (props: any) => (
+  <div>
+    <Filters />
+  </div>
+)
 
 export default AnalysisModule
