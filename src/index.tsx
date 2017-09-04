@@ -1,32 +1,12 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
-import { injectGlobal } from 'styled-components'
+
+import styles from './theme'
+styles()
 
 import Root from './components/root'
 import { configureStore, history } from './store/configure-store'
-
-injectGlobal`
-  @font-face {
-    font-family: 'Roboto Bold';
-    src: url(${require('./fonts/roboto/roboto-bold-webfont.woff2')}) format('woff2'),
-      url(${require('./fonts/roboto/roboto-bold-webfont.woff')}) format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'Roboto Regular';
-    src: url(${require('./fonts/roboto/roboto-regular-webfont.woff2')}) format('woff2'),
-      url(${require('./fonts/roboto/roboto-regular-webfont.woff')}) format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  body {
-    font-family: Roboto Regular;
-  }
-`
 
 const store = configureStore()
 
