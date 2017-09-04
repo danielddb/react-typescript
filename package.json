@@ -4,11 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@types/axios": "^0.14.0",
     "@types/history": "^4.6.0",
     "@types/react": "^16.0.5",
     "@types/react-dom": "^15.5.4",
     "@types/react-redux": "^5.0.6",
     "@types/react-router": "^4.0.15",
+    "axios": "^0.16.2",
     "es6-promise": "^4.1.1",
     "history": "^4.7.2",
     "material-ui": "next",

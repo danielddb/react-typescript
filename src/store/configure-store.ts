@@ -8,22 +8,13 @@ import thunk from 'redux-thunk'
 import createHistory from 'history/createBrowserHistory'
 const reactRouterRedux = require('react-router-redux')
 
+const rootReducer = combineReducers({ router: reactRouterRedux.routerReducer })
+
 // Create a history of your choosing (we're using a browser history in this case)
 export const history = createHistory()
 
 // Build the middleware for intercepting and dispatching navigation actions
 const routerMiddleware = reactRouterRedux.routerMiddleware(history)
-
-const filter = (state = '', action: any) => {
-  switch (action.type) {
-    case 'FILTER':
-      return 'FILTERED'
-    default:
-      return state
-  }
-}
-
-const rootReducer = combineReducers({ filter, router: reactRouterRedux.routerReducer })
 
 const middlewares: any = [routerMiddleware, thunk]
 

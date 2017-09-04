@@ -10,23 +10,6 @@ import { configureStore, history } from './store/configure-store'
 
 const store = configureStore()
 
-store.dispatch(testingThunk('https://dog.ceo/api/breeds/list/all'))
-
-function testingThunk(url: string) {
-  return async (dispatch: any) => {
-    dispatch({ type: 'FETCH', payload: url })
-
-    try {
-      const response = await fetch(url)
-
-      dispatch({ type: 'FETCH_SUCCESS', payload: response.json() })
-    }
-    catch(e) {
-      dispatch({ type: 'FETCH_ERROR', payload: e })
-    }
-  }
-}
-
 ReactDOM.render(
   <AppContainer>
     <Root store={store} history={history} />
