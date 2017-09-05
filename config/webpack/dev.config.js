@@ -1,14 +1,14 @@
-import * as webpack from 'webpack'
-import * as webpackMerge from 'webpack-merge'
-import commonConfig from './common.config'
-import { root } from '../helpers'
+const webpack = require('webpack')
+const webpackMerge = require('webpack-merge')
+const commonConfig = require('./common.config')
+const helpers = require('../helpers')
 const argv = require('minimist')(process.argv.slice(2))
 
 const envArgs = argv.env || {}
 
-const config: webpack.Configuration = webpackMerge(commonConfig, {
+module.exports = webpackMerge(commonConfig, {
   entry: {
-    main: ['react-hot-loader/patch', './src/index.tsx']
+    main: ['react-hot-loader/patch', './src/index.jsx']
   },
 
   devtool: 'inline-source-map',
@@ -30,14 +30,11 @@ const config: webpack.Configuration = webpackMerge(commonConfig, {
 
   module: {
     rules: [
-      // All files with a '.ts' or '.tsx' extension are handled by 'awesome-typescript-loader'.
+      // All files with a '.js' or '.jsx' extension are handled by 'babel-loader'.
       {
-        test: /\.tsx?$/,
-        loaders: [
-          'react-hot-loader/webpack',
-          'awesome-typescript-loader'
-        ],
-        include: root('src'),
+        test: /\.jsx?$/,
+        use: ['babel-loader'],
+        include: helpers.root('src'),
       },
     ]
   },
@@ -48,5 +45,3 @@ const config: webpack.Configuration = webpackMerge(commonConfig, {
     new webpack.HotModuleReplacementPlugin()
   ]
 })
-
-export default config

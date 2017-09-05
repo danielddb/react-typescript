@@ -1,8 +1,8 @@
-import * as React from 'react'
+import React from 'react'
 
 import Filters from './containers/filters'
 
-const AnalysisModule = (props: any) => (
+const AnalysisModule = props => (
   <div>
     <Filters />
   </div>

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import {
   Link,
   Redirect,
@@ -12,19 +12,19 @@ import { DEFAULT_ROUTE } from '../constants/routes'
 const loadAnalysisModule = require('promise-loader?global,analysis-module!../scenes/analysis-module')
 const loadNotFound = require('promise-loader?global,not-found!../scenes/not-found')
 
-const AnalysisModule: React.SFC = (props: any) => (
+const AnalysisModule = (props) => (
   <Bundle loadComponent={loadAnalysisModule}>
-    {(AnalysisModule: any) => <AnalysisModule {...props} />}
+    {AnalysisModule => <AnalysisModule {...props} />}
   </Bundle>
 )
 
-const NotFound: React.SFC = (props: any) => (
+const NotFound = (props) => (
   <Bundle loadComponent={loadNotFound}>
-    {(NotFound: any) => <NotFound {...props} />}
+    {NotFound => <NotFound {...props} />}
   </Bundle>
 )
 
-const App: React.SFC = (props: any) => {
+const App = (props) => {
   return (
     <div>
       <Link to={DEFAULT_ROUTE}>Analysis Module</Link>

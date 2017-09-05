@@ -10,8 +10,8 @@ import middlewares from './middlewares'
 
 export const store  = configureStore()
 
-function configureStore(initialState?: any): any {
-  const store: any = createStore(
+function configureStore(initialState)  {
+  const store = createStore(
     createReducer(),
     initialState,
     compose(applyMiddleware(...middlewares))
@@ -22,6 +22,6 @@ function configureStore(initialState?: any): any {
   return store
 }
 
-export function injectAsyncReducers(store: any, reducers: any): void {
+export function injectAsyncReducers(store, reducers) {
   store.replaceReducer(createReducer(reducers))
 }

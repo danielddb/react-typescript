@@ -1,28 +1,27 @@
-import * as HtmlWebpackPlugin from 'html-webpack-plugin'
-import * as path from 'path'
-import * as webpack from 'webpack'
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path')
+const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
-import { root } from '../helpers'
+const helpers = require('../helpers')
 
-const config: webpack.Configuration = {
+module.exports = {
   entry: {
-    main: './src/index.tsx'
+    main: './src/index.jsx'
   },
 
   output: {
-    path: root('dist'),
+    path: helpers.root('dist'),
     publicPath: '/',
     filename: '[name].[hash].js',
     chunkFilename: '[name].[hash].chunk.js'
   },
 
   resolve: {
-    // Add '.ts' and '.tsx' as resolvable extensions.
-    extensions: [".ts", ".tsx", ".js"],
+    extensions: [".jsx", ".js"],
 
     // Tell webpack what directories to search when resolving modules
-    modules: [root('src'), 'node_modules']
+    modules: [helpers.root('src'), 'node_modules']
   },
 
   module: {
@@ -40,7 +39,7 @@ const config: webpack.Configuration = {
 
   plugins: [
     // A webpack plugin to remove/clean the build folder before building.
-    new CleanWebpackPlugin(['dist'], { root: root() }),
+    new CleanWebpackPlugin(['dist'], { root: helpers.root() }),
 
     // A webpack plugin that simplifies creation of HTML files to serve your webpack bundles.
     new HtmlWebpackPlugin({
@@ -57,5 +56,3 @@ const config: webpack.Configuration = {
     })
   ]
 }
-
-export default config

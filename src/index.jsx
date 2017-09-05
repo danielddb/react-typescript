@@ -1,5 +1,5 @@
-import * as React from 'react'
-import * as ReactDOM from 'react-dom'
+import React from 'react'
+import { render } from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 
 import styles from './theme'
@@ -9,7 +9,7 @@ import Root from './components/root'
 import { store } from './store/configure-store'
 import { history } from './store/middlewares'
 
-ReactDOM.render(
+render(
   <AppContainer>
     <Root store={store} history={history} />
   </AppContainer>,
@@ -23,7 +23,7 @@ if (module.hot) {
     const newHistory = newConfigureStore.history
     const NewRoot = require('./components/root').default
 
-    ReactDOM.render(
+    render(
       <AppContainer>
         <NewRoot store={store} history={newHistory} />
       </AppContainer>,

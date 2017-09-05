@@ -1,15 +1,11 @@
-import * as React from "react"
+import React from "react"
 import styled, { css } from 'styled-components'
-import Button from 'material-ui/Button';
-
-interface Props {
-  primary?: any
-}
+import Button from 'material-ui/Button'
 
 const StyledH1 = styled.h1`
   background: #eee;
 
-  ${(props: Props) => props.primary && css`
+  ${props => props.primary && css`
     background: orange;
   `}
 `

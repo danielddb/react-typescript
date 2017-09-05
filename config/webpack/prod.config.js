@@ -1,17 +1,21 @@
-import * as webpack from 'webpack'
-import * as webpackMerge from 'webpack-merge'
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
+const webpack = require('webpack')
+const webpackMerge = require('webpack-merge')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
-import commonConfig from './common.config'
-import { root } from '../helpers'
+const commonConfig = require('./common.config')
+const helpers = require('../helpers')
 
-const config: webpack.Configuration = webpackMerge(commonConfig, {
+module.exports = webpackMerge(commonConfig, {
   devtool: 'cheap-module-source-map',
 
   module: {
     rules: [
-      { test: /\.tsx?$/, use: ['awesome-typescript-loader'] }
+      {
+        test: /\.jsx?$/,
+        use: ['babel-loader'],
+        include: helpers.root('src')
+      }
     ]
   },
 
@@ -26,7 +30,7 @@ const config: webpack.Configuration = webpackMerge(commonConfig, {
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
       openAnalyzer: false,
-      reportFilename: root('reports/bundle-analyzer/index.html')
+      reportFilename: helpers.root('reports/bundle-analyzer/index.html')
     }),
 
     new webpack.DefinePlugin({
@@ -36,5 +40,3 @@ const config: webpack.Configuration = webpackMerge(commonConfig, {
     })
   ]
 })
-
-export default config

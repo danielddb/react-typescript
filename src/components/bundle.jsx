@@ -1,8 +1,8 @@
-import * as React from 'react'
+import { Component } from 'react'
 import { injectAsyncReducers, store } from '../store/configure-store'
 
-export default class Bundle extends React.Component<{ loadComponent: any, loadReducers?: any }> {
-  state: any = {
+export default class Bundle extends Component {
+  state = {
     // short for "module" but that's a keyword in js, so "mod"
     mod: null
   }
@@ -11,7 +11,7 @@ export default class Bundle extends React.Component<{ loadComponent: any, loadRe
     this.load(this.props)
   }
 
-  async load(props: any) {
+  async load(props) {
     this.setState({
       mod: null
     })
@@ -31,8 +31,8 @@ export default class Bundle extends React.Component<{ loadComponent: any, loadRe
   }
 
   render() {
-    const state: any = this.state
-    const props: any = this.props
+    const state = this.state
+    const props = this.props
 
     return state.mod ? props.children(state.mod) : null
   }

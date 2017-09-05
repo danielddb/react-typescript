@@ -7,7 +7,7 @@ export const ACTION_TYPES = {
 }
 
 export function getProducts() {
-  return async (dispatch: any) => {
+  return async dispatch => {
     dispatch({ type: ACTION_TYPES.getProducts })
 
     try {

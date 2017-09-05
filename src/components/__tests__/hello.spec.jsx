@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { shallow, mount, render } from 'enzyme'
 
 import Hello from '../hello'
@@ -9,6 +9,6 @@ describe('Hello', () => {
   })
 
   it('should render to static HTML', () => {
-    expect(render(<Hello />).text()).toEqual('Hello world')
+    expect(render(<Hello />).text()).toContain('Hello world')
   })
 })

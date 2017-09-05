@@ -7,6 +7,10 @@ reports
 ############
 node_modules
 
+# Log files #
+#############
+yarn-error.log
+
 # OS generated files #
 ######################
 .DS_Store

@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Hello should render without throwing an error 1`] = `
-<styled.h1
-  primary={true}
->
-  Hello world
-</styled.h1>
-`;

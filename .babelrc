@@ -1,0 +1,22 @@
+{
+  "presets": [
+    "es2015",
+    "react"
+  ],
+  "plugins": [
+    "react-hot-loader/babel",
+    "transform-class-properties",
+    "transform-object-rest-spread",
+    ["fast-async", {
+      "env": {
+      	"log":false
+      },
+      "compiler": {
+        "promises": true,
+        "generators": false
+      },
+      "runtimePattern":null,
+      "useRuntimeModule":false
+    }]
+  ]
+}
