@@ -2,20 +2,20 @@ import React from 'react'
 import { render } from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 
-import styles from './theme'
-styles()
+import core from './core'
 
-import Root from './components/root'
-import { store } from './store/configure-store'
-import { history } from './store/middlewares'
+core.theme()
+
+import { store } from './core/store/configure-store'
+import { history } from './core/store/middlewares'
 
 render(
   <AppContainer>
-    <Root store={store} history={history} />
+    <core.components.Root store={store} history={history} />
   </AppContainer>,
   document.getElementById('root')
 )
-
+/*
 // Hot Module Replacement API
 if (module.hot) {
   module.hot.accept('./components/root', () => {
@@ -30,4 +30,4 @@ if (module.hot) {
       document.getElementById('root')
     )
   })
-}
+}*/

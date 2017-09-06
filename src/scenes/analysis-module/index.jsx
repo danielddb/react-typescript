@@ -1,11 +1,10 @@
 import React from 'react'
 
-import Filters from './containers/filters'
+import App from './components/app'
+import rootReducer from './root-reducer'
+import core from '../../core'
 
-const AnalysisModule = props => (
-  <div>
-    <Filters />
-  </div>
-)
+const componentExportName = 'App'
+const reducerExportName = 'rootReducer'
 
-export default AnalysisModule
+export default core.helpers.lazyExportHelpers.setup(App, rootReducer)

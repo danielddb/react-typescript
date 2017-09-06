@@ -8,25 +8,23 @@ export default class Bundle extends Component {
   }
 
   componentWillMount() {
-    this.load(this.props)
+    this.loadScene(this.props)
   }
 
-  async load(props) {
+  async loadScene(props) {
     this.setState({
       mod: null
     })
 
     try {
-      const mod = [await props.loadComponent(), props.loadReducers ? await props.loadReducers() : undefined]
+      const mod = await props.loadScene()
 
-      if(mod[1]) {
-        injectAsyncReducers(store, mod[1].default)
-      }
+      injectAsyncReducers(store, mod.default.reducer)
 
-      this.setState({ mod: mod[0].default })
+      this.setState({ mod: mod.default.component })
     }
     catch(e) {
-      console.warn('An error occurred while loading the component:', e)
+      console.warn('An error occurred while loading the scene:', e)
     }
   }
 

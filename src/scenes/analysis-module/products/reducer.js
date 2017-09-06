@@ -1,26 +1,29 @@
-import { ACTION_TYPES } from './actions'
+import * as types from './action-types'
 
 const initialState = {
   loading: false,
   products: []
 }
 
-export function reducer(state = initialState, action) {
+export default function reducer(state = initialState, action) {
   switch(action.type) {
-    case ACTION_TYPES.getProducts:
+    case types.GET_PRODUCTS:
       return { ...state, loading: true }
 
-    case ACTION_TYPES.getProductsSuccess:
+    case types.GET_PRODUCTS_SUCCESS:
       return {
         ...state,
         loading: false,
         products: action.payload.products
       }
 
-    case ACTION_TYPES.getProductsFail:
+    case types.GET_PRODUCTS_FAIL:
       return {
         ...state,
         loading: false
       }
+
+    default:
+      return state
   }
 }

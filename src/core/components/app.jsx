@@ -7,20 +7,20 @@ import {
 } from 'react-router-dom'
 
 import Bundle from './bundle'
-import { DEFAULT_ROUTE } from '../constants/routes'
+import { DEFAULT_ROUTE } from '../constants'
 
-const loadAnalysisModule = require('promise-loader?global,analysis-module!../scenes/analysis-module')
-const loadNotFound = require('promise-loader?global,not-found!../scenes/not-found')
+const loadAnalysisScene = require('promise-loader?global,analysis-module!../../scenes/analysis-module')
+const loadNotFoundScene = require('promise-loader?global,not-found!../../scenes/not-found')
 
 const AnalysisModule = (props) => (
-  <Bundle loadComponent={loadAnalysisModule}>
-    {AnalysisModule => <AnalysisModule {...props} />}
+  <Bundle loadScene={loadAnalysisScene}>
+    {Component => <Component {...props} />}
   </Bundle>
 )
 
 const NotFound = (props) => (
-  <Bundle loadComponent={loadNotFound}>
-    {NotFound => <NotFound {...props} />}
+  <Bundle loadScene={loadNotFoundScene}>
+    {Component => <Component {...props} />}
   </Bundle>
 )
 

@@ -1,6 +1,6 @@
 import React from "react"
 import styled, { css } from 'styled-components'
-import Button from 'material-ui/Button'
+import Button from 'material-ui-next/Button'
 
 const StyledH1 = styled.h1`
   background: #eee;

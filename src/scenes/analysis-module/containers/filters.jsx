@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem'
+import { connect } from 'react-redux'
 
 import { getEntities } from '../data/entities/api'
 import { getForms } from '../data/forms/api'
 import { getProducts } from '../data/products/api'
 
-export default class Filters extends Component {
+class Filters extends Component {
   state = {
     options: {
       products: [],
@@ -30,6 +31,8 @@ export default class Filters extends Component {
 
   async componentDidMount() {
     const products = await getProducts()
+
+    this.props.dispatch({ type: 'GET_PRODUCTS' })
 
     this.setOptionValue('products', products)
   }
@@ -137,3 +140,5 @@ export default class Filters extends Component {
     )
   }
 }
+
+export default connect(null, null)(Filters)
