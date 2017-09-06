@@ -11,14 +11,11 @@ class Filters extends Component {
   state = {
     options: {
       products: [],
-      entities: [],
-      forms: []
+      entities: []
     },
     form: {
       productPrefix: null,
-      entityCode: null,
-      formCode: null,
-      formVersion: null
+      entityCode: null
     }
   }
 
@@ -32,6 +29,7 @@ class Filters extends Component {
   async componentDidMount() {
     const products = await getProducts()
 
+    // just trying out a dispatch
     this.props.dispatch({ type: 'GET_PRODUCTS' })
 
     this.setOptionValue('products', products)
@@ -53,9 +51,6 @@ class Filters extends Component {
     this.setOptionValue('entities', [])
     this.setFormValue('entityCode', null)
 
-    this.setOptionValue('forms', [])
-    this.setFormValue('formCode', null)
-
     this.setFormValue('productPrefix', value)
 
     const entities = await getEntities(value)
@@ -64,9 +59,6 @@ class Filters extends Component {
   }
 
   async handleEntityCodeChange(event, index, value) {
-    this.setOptionValue('forms', [])
-    this.setFormValue('formCode', null)
-
     this.setFormValue('entityCode', value)
 
     const forms = await getForms(this.state.form.productPrefix, value)
@@ -112,30 +104,11 @@ class Filters extends Component {
     )
   }
 
-  renderForm() {
-    const { options, form } = this.state
-
-    return (
-      <div>
-        <SelectField
-          disabled={options.forms.length === 0}
-          value={form.formCode}
-          floatingLabelText="Return">
-            {options.forms.map(f => (
-              <MenuItem  value={f.code} key={f.id} primaryText={f.formVersionName}/>
-            ))}
-        </SelectField>
-        <br/>
-      </div>
-    )
-  }
-
   render() {
     return (
       <div>
       {this.renderProductPrefix()}
       {this.renderEntityCode()}
-      {this.renderForm()}
       </div>
     )
   }
