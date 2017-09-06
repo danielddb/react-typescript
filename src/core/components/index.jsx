@@ -3,7 +3,7 @@ import Bundle from './bundle'
 import Hello from './hello'
 import Root from './root'
 
-export default {
+export {
   App,
   Bundle,
   Hello,

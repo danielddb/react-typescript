@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { injectAsyncReducers, store } from '../store/configure-store'
+import { configuredStore, injectAsyncReducers } from '../store'
 
 export default class Bundle extends Component {
   state = {
@@ -19,7 +19,7 @@ export default class Bundle extends Component {
     try {
       const mod = await props.loadScene()
 
-      injectAsyncReducers(store, mod.default.reducer)
+      injectAsyncReducers(configuredStore, mod.default.reducer)
 
       this.setState({ mod: mod.default.component })
     }

@@ -1,5 +1,6 @@
 import React from 'react'
 
-const NotFound = props => <div>Page not found...</div>
+import NotFound from './components/not-found'
+import { helpers } from '../../core'
 
-export default NotFound
+export default helpers.lazyExport.setup(NotFound)

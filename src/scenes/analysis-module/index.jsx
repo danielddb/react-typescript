@@ -2,9 +2,6 @@ import React from 'react'
 
 import App from './components/app'
 import rootReducer from './root-reducer'
-import core from '../../core'
+import { helpers } from '../../core'
 
-const componentExportName = 'App'
-const reducerExportName = 'rootReducer'
-
-export default core.helpers.lazyExportHelpers.setup(App, rootReducer)
+export default helpers.lazyExport.setup(App, rootReducer)

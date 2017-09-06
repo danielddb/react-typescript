@@ -8,7 +8,7 @@ import thunk from 'redux-thunk'
 import createReducer from './reducers'
 import middlewares from './middlewares'
 
-export const store  = configureStore()
+export const configuredStore  = configureStore()
 
 function configureStore(initialState)  {
   const store = createStore(

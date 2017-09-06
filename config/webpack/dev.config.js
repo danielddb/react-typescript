@@ -7,15 +7,10 @@ const argv = require('minimist')(process.argv.slice(2))
 const envArgs = argv.env || {}
 
 module.exports = webpackMerge(commonConfig, {
-  entry: {
-    main: ['react-hot-loader/patch', './src/index.jsx']
-  },
-
   devtool: 'inline-source-map',
 
   devServer: {
     historyApiFallback: true,
-    hot: true,
     proxy: [
       {
         context: envArgs.mockPath,
@@ -37,11 +32,5 @@ module.exports = webpackMerge(commonConfig, {
         include: helpers.root('src'),
       },
     ]
-  },
-
-  plugins: [
-    new webpack.NamedModulesPlugin(),
-
-    new webpack.HotModuleReplacementPlugin()
-  ]
+  }
 })

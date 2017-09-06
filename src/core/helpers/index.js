@@ -1,4 +1,4 @@
-import * as lazyExportHelpers from './lazy-export'
-import * as reducerHelpers from './reducer'
+import * as lazyExport from './lazy-export'
+import * as reducer from './reducer'
 
-export default { lazyExportHelpers, reducerHelpers }
+export { lazyExport, reducer }
